@@ -50,7 +50,13 @@ class DataInitializer {
                 pronunciation: wordData.pronunciation,
                 synonyms: wordData.synonyms,
                 antonyms: wordData.antonyms,
-                isLearned: wordData.isLearned
+                isLearned: wordData.isLearned,
+                meaningTestEn: wordData.meaningTestEn,
+                meaningTestKo: wordData.meaningTestKo,
+                meaningTestZh: wordData.meaningTestZh,
+                meaningTestJa: wordData.meaningTestJa,
+                synonymTestEn: wordData.synonymTestEn,
+                antonymTestEn: wordData.antonymTestEn
             )
             context.insert(word)
         }
@@ -161,12 +167,21 @@ class DataInitializer {
     private func parseCSVLine(line: String) -> WordData? {
         let components = parseCSVRow(line)
         
-        guard components.count >= 8 else {
-            print("Invalid CSV line format: \(line)")
+        guard components.count >= 14 else {
+            print("Invalid CSV line format (expected 14 fields, got \(components.count)): \(line)")
             return nil
         }
         
-        // CSV 필드 파싱
+        // 디버깅: 첫 번째 단어의 경우 모든 컬럼을 출력
+        if components.count > 0 && components[0] == "Abate" {
+            print("🔍 CSV 파싱 디버깅 - Abate:")
+            for (index, component) in components.enumerated() {
+                print("  [\(index)]: \(component)")
+            }
+        }
+        
+        // CSV 필드 파싱 (CSV 헤더 순서에 맞춤)
+        // text,meaning,partOfSpeech,exampleSentence,pronunciation,synonyms,antonyms,isLearned,meaning_test_en,meaning_test_ko,meaning_test_zh,meaning_test_ja,synonym_test_en,antonym_test_en
         let text = components[0]
         let meaning = components[1]
         let partOfSpeech = components[2]
@@ -176,6 +191,25 @@ class DataInitializer {
         let antonyms = components[6]
         let isLearned = components[7].lowercased() == "true"
         
+        // 테스트 선택지들은 파이프(|)로 구분되어 있음
+        let meaningTestEn = components[8]
+        let meaningTestKo = components[9]
+        let meaningTestZh = components[10]
+        let meaningTestJa = components[11]
+        let synonymTestEn = components[12]
+        let antonymTestEn = components[13]
+        
+        // Affable 디버깅 (파이프 분리 확인)
+        if text == "Affable" {
+            print("🔍 Affable 파싱 결과:")
+            print("  synonymTestEn: \(synonymTestEn)")
+            print("  antonymTestEn: \(antonymTestEn)")
+            print("  meaningTestEn: \(meaningTestEn)")
+            print("  meaningTestKo: \(meaningTestKo)")
+            print("  meaningTestZh: \(meaningTestZh)")
+            print("  meaningTestJa: \(meaningTestJa)")
+        }
+        
         return WordData(
             text: text,
             meaning: meaning,
@@ -184,7 +218,13 @@ class DataInitializer {
             pronunciation: pronunciation,
             synonyms: synonyms,
             antonyms: antonyms,
-            isLearned: isLearned
+            isLearned: isLearned,
+            meaningTestEn: meaningTestEn,
+            meaningTestKo: meaningTestKo,
+            meaningTestZh: meaningTestZh,
+            meaningTestJa: meaningTestJa,
+            synonymTestEn: synonymTestEn,
+            antonymTestEn: antonymTestEn
         )
     }
     
@@ -227,4 +267,10 @@ struct WordData {
     let synonyms: String
     let antonyms: String
     let isLearned: Bool
+    let meaningTestEn: String
+    let meaningTestKo: String
+    let meaningTestZh: String
+    let meaningTestJa: String
+    let synonymTestEn: String
+    let antonymTestEn: String
 } 
