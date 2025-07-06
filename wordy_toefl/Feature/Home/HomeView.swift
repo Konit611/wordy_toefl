@@ -171,7 +171,6 @@ struct DailyWordsSection: View {
                 .foregroundColor(.wordyBlack)
                 .padding(.top, 20)
                 .padding(.horizontal, 20)
-                // .padding(.bottom, 10)
             
             VStack(spacing: 0) {
                 ForEach(Array(dailyWords.prefix(5).enumerated()), id: \.element.id) { index, dailyWord in
