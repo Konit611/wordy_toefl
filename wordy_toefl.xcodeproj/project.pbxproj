@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C6DB0B6E2E1A39380018CF9A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C6DB0B6D2E1A39340018CF9A /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C6DB0B022E1A38620018CF9A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		C6DB0AEE2E1A38600018CF9A /* wordy_toefl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordy_toefl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DB0B012E1A38620018CF9A /* wordy_toeflTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wordy_toeflTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DB0B0B2E1A38620018CF9A /* wordy_toeflUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wordy_toeflUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6DB0B6D2E1A39340018CF9A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		C6DB0AE52E1A38600018CF9A = {
 			isa = PBXGroup;
 			children = (
+				C6DB0B6D2E1A39340018CF9A /* .gitignore */,
 				C6DB0AF02E1A38600018CF9A /* wordy_toefl */,
 				C6DB0B042E1A38620018CF9A /* wordy_toeflTests */,
 				C6DB0B0E2E1A38620018CF9A /* wordy_toeflUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DB0B6E2E1A39380018CF9A /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
