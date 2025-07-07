@@ -106,16 +106,20 @@ struct TestTargetCard: View {
     let count: Int
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 4) {
             Text("테스트 대상 단어")
-                .font(.headline)
+                .font(.title2)
+                .fontWeight(.semibold)
                 .foregroundColor(.wordyBlack)
             
-            Spacer()
+            Spacer(minLength: 6)
             
-            Text("\(count)개")
-                .font(.system(size: 32, weight: .bold))
-                .foregroundColor(.customBackgroundGreen)
+            HStack {
+                Spacer()
+                Text("\(count)개")
+                    .font(.system(size: 32, weight: .bold))
+                    .foregroundColor(.customBackgroundGreen)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .frame(height: 120)
@@ -129,21 +133,21 @@ struct TestTargetCard: View {
 // MARK: - Test Go Card
 struct TestGoCard: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Spacer()
-            
+        VStack(alignment: .leading, spacing: 4) {
             Text("테스트\n하러 가기")
-                .font(.headline)
+                .font(.title2)
+                .fontWeight(.semibold)
                 .foregroundColor(.wordyBlack)
                 .multilineTextAlignment(.leading)
+                .lineLimit(nil)
             
-            Spacer()
+            Spacer(minLength: 6)
             
             HStack {
                 Spacer()
                 NavigationLink(destination: TestView()) {
                     Image(systemName: "arrow.up.right")
-                        .font(.title2)
+                        .font(.system(size: 28, weight: .light))
                         .foregroundColor(.white)
                         .frame(width: 36, height: 36)
                         .background(Color.customBackgroundGreen)
